@@ -1,0 +1,25 @@
+{
+  "name": "teleporter",
+  "version": "1.0.0",
+  "description": "This is a teleporter guide for Avax",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile && node scripts/runTypeChain.js",
+    "deploy1": "npx hardhat run scripts/deployStep1.ts --network aChain",
+    "deploy2": "npx hardhat run scripts/deployStep2.ts --network bChain",
+    "deploy3": "npx hardhat run scripts/deployStep3.ts --network aChain",
+    "validate_sum": "npx hardhat run scripts/validateCalculator.ts --network bChain",
+    "run_sum": "npx hardhat run scripts/runCalculator.ts --network aChain"
+  },
+  "author": "Alejandro S",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@typechain/ethers-v6": "^0.5.1",
+    "hardhat": "^2.19.4",
+    "typechain": "^8.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.2"
+  }
+}
