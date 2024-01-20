@@ -28,10 +28,11 @@ El archivo se vera así:
 
 Luego deberás correr los scripts en el siguiente orden:
 
-1. `npm run compile` (Compila y crea los tipos necesarios según los contratos).
-2. `npm run deploy1` (Despliega los contratos de la `subnet_a`).
-3. `npm run deploy2` (Despliega los contratos de la `subnet_b` y llama la función del paso `5` mencionado en la sección anterior).
-4. `npm run deploy3` (Llama la función del paso `6` y `7` mencionado en la sección anterior correspondientes a la `subnet_a`).
-5. `npm run validate_sum` (Llama la función `result` de `UltraCalculator` en la `subnet_b`, la cual retorna un valor inicial de `0`, lo que significa que su valor está inicializado y no se ha modificado).
-6. `npm run run_sum` (Llama la función `sumTwoNumbers` de `SuperCalculator` en la `subnet_a`, la cual suma e inicia una llamada en cascada hasta llegar al contrato de `UltraCalculator` en la `subnet_b`).
-7. `npm run validate_sum` (Llama la función `result` de `UltraCalculator` en la `subnet_b`, la cual retorna un valor diferente a `0`, lo que significa que su valor se modificó conforme a lo asignado en el contrato de `SuperCalculator` en la `subnet_a`).
+1. `npm i` (Instala las dependencias necesarias)
+2. `npm run compile` (Compila y crea los tipos necesarios según los contratos).
+3. `npm run deploy1` (Despliega los contratos de la `subnet_a`).
+4. `npm run deploy2` (Despliega los contratos de la `subnet_b` y llama la función del paso `5` mencionado en la sección anterior).
+5. `npm run deploy3` (Llama la función del paso `6` y `7` mencionado en la sección anterior correspondientes a la `subnet_a`).
+6. `npm run validate_sum` (Llama la función `result` de `UltraCalculator` en la `subnet_b`, la cual retorna un valor inicial de `0`, lo que significa que su valor está inicializado y no se ha modificado).
+7. `npm run run_sum` (Llama la función `sumTwoNumbers` de `SuperCalculator` en la `subnet_a`, la cual suma e inicia una llamada en cascada hasta llegar al contrato de `UltraCalculator` en la `subnet_b`).
+8. `npm run validate_sum` (Llama la función `result` de `UltraCalculator` en la `subnet_b`, la cual retorna un valor diferente a `0`, lo que significa que su valor se modificó conforme a lo asignado en el contrato de `SuperCalculator` en la `subnet_a`).

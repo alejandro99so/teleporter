@@ -12,6 +12,7 @@ async function main() {
   const SuperCalculator = await ethers.getContractFactory('SuperCalculator');
   const superCalculator = SuperCalculator.attach(addressSuperCalculator) as ISuperCalculator;
   await superCalculator.updateSender(addressTeleporterSender);
+  console.log("Completado")
 }
 
 main().catch((error) => {

@@ -15,6 +15,7 @@ async function main() {
       addressTeleporterSender
     })
   );
+  console.log("Completado")
 }
 
 main().catch((error) => {

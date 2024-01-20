@@ -9,6 +9,7 @@ async function main() {
     const superCalculator = SuperCalculator.attach(addressSuperCalculator) as ISuperCalculator;
     const sum = await superCalculator.sumTwoNumbers(10, 23);
     console.log("Amount: ", sum)
+    console.log("completado")
 }
 
 main().catch((error) => {

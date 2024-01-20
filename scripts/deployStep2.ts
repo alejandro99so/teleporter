@@ -19,6 +19,7 @@ async function main() {
     })
   );
   await teleporterReceiver.updateUltraCalculator(addressUltraCalculator);
+  console.log("Completado")
 }
 
 main().catch((error) => {
