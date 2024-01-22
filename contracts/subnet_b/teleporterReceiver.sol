@@ -13,6 +13,14 @@ contract TeleporterReceiver is ITeleporterReceiver {
         ITeleporterMessenger(0x50A46AA7b2eCBe2B1AbB7df865B9A87f5eed8635);
     address public owner;
     address public teleporterSenderAddress;
+
+    enum OperationType {
+        Sum,
+        Subtract,
+        Multiply,
+        Divide
+    }
+
     IUltraCalculator public ultraCalculator;
 
     constructor(address _teleporterSenderAddress) {
@@ -21,6 +29,7 @@ contract TeleporterReceiver is ITeleporterReceiver {
     }
 
     error Unauthorized();
+    error OperationTypeNotFound(uint8 _type);
 
     function receiveTeleporterMessage(
         bytes32 originChainID,
@@ -36,8 +45,21 @@ contract TeleporterReceiver is ITeleporterReceiver {
         _originChainID = originChainID;
         _originSenderAddress = originSenderAddress;
 
-        (uint256 num1, uint256 num2) = abi.decode(message, (uint256, uint256));
-        ultraCalculator.sumTwoNumbers(num1, num2);
+        (OperationType operationType, uint256 num1, uint256 num2) = abi.decode(
+            message,
+            (OperationType, uint256, uint256)
+        );
+        if (operationType == OperationType.Sum) {
+            ultraCalculator.sumTwoNumbers(num1, num2);
+        } else if (operationType == OperationType.Subtract) {
+            ultraCalculator.subtractTwoNumbers(num1, num2);
+        } else if (operationType == OperationType.Multiply) {
+            ultraCalculator.multiplyTwoNumbers(num1, num2);
+        } else if (operationType == OperationType.Divide) {
+            ultraCalculator.divideTwoNumbers(num1, num2);
+        } else {
+            revert OperationTypeNotFound(uint8(operationType));
+        }
     }
 
     function updateTeleporterSenderAddress(

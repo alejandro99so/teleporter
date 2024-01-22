@@ -29,10 +29,62 @@ contract UltraCalculator {
         result = num1 + num2;
         return result;
     }
+
+    function subtractTwoNumbers(
+        uint256 num1,
+        uint256 num2
+    ) external returns (uint256 _result) {
+        require(
+            msg.sender == owner || msg.sender == teleporterReceiverAddress,
+            "Only owner or teleporter receiver address"
+        );
+        result = num1 - num2;
+        return result;
+    }
+
+    function multiplyTwoNumbers(
+        uint256 num1,
+        uint256 num2
+    ) external returns (uint256 _result) {
+        require(
+            msg.sender == owner || msg.sender == teleporterReceiverAddress,
+            "Only owner or teleporter receiver address"
+        );
+        result = num1 * num2;
+        return result;
+    }
+
+    function divideTwoNumbers(
+        uint256 num1,
+        uint256 num2
+    ) external returns (uint256 _result) {
+        require(
+            msg.sender == owner || msg.sender == teleporterReceiverAddress,
+            "Only owner or teleporter receiver address"
+        );
+        require(num2 != 0, "Cannot divide by zero");
+        result = num1 / num2;
+        return result;
+    }
 }
 
 interface IUltraCalculator {
     function sumTwoNumbers(
+        uint256 num1,
+        uint256 num2
+    ) external returns (uint256 _result);
+
+    function subtractTwoNumbers(
+        uint256 num1,
+        uint256 num2
+    ) external returns (uint256 _result);
+
+    function multiplyTwoNumbers(
+        uint256 num1,
+        uint256 num2
+    ) external returns (uint256 _result);
+
+    function divideTwoNumbers(
         uint256 num1,
         uint256 num2
     ) external returns (uint256 _result);

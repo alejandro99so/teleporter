@@ -2,6 +2,13 @@
 pragma solidity 0.8.18;
 import "../external_contracts/Teleporter/ITeleporterMessenger.sol";
 
+enum OperationType {
+    Sum,
+    Subtract,
+    Multiply,
+    Divide
+}
+
 contract TeleporterSender {
     ITeleporterMessenger public immutable teleporterMessenger =
         ITeleporterMessenger(0x50A46AA7b2eCBe2B1AbB7df865B9A87f5eed8635);
@@ -16,6 +23,7 @@ contract TeleporterSender {
     }
 
     function sendMessage(
+        OperationType operationType,
         uint256 num1,
         uint256 num2
     ) external returns (uint256 messageID) {
@@ -23,7 +31,7 @@ contract TeleporterSender {
             msg.sender == owner || msg.sender == superCalculatorAddress,
             "Only owner or super calculator"
         );
-        bytes memory message = abi.encode(num1, num2);
+        bytes memory message = abi.encode(operationType, num1, num2);
         return
             uint(
                 teleporterMessenger.sendCrossChainMessage(
@@ -59,6 +67,7 @@ contract TeleporterSender {
 
 interface ITeleporterSender {
     function sendMessage(
+        OperationType operationType,
         uint256 num1,
         uint256 num2
     ) external returns (uint256 messageID);
