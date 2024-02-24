@@ -6,17 +6,25 @@ const mnemonic = process.env.MNEMONIC
 const config: HardhatUserConfig = {
   solidity: "0.8.18",
   networks: {
-    aChain: {
-      url: "https://subnets.avax.network/amplify/testnet/rpc",
-      chainId: 78430,
-      gasPrice: 20000000000,
+    dispatch: {
+      url: "https://subnets.avax.network/dispatch/testnet/rpc",
+      chainId: 779672,
+      gasPrice: 25000000000,
       accounts: { mnemonic: mnemonic }
     },
-    bChain: {
-      url: "https://subnets.avax.network/bulletin/testnet/rpc",
-      chainId: 78431,
-      gasPrice: 20000000000,
+    echo: {
+      url: "https://subnets.avax.network/echo/testnet/rpc",
+      chainId: 173750,
+      gasPrice: 25000000000,
       accounts: { mnemonic: mnemonic }
+    },
+    cChain: {
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      chainId: 43113,
+      gasPrice: 25000000000,
+      accounts: {
+        mnemonic: mnemonic
+      }
     }
   }
 };

@@ -1,6 +1,5 @@
 {
-    "addressSuperCalculator": "0x0C06b9FC9f74bC4a311B8F94958765eA3838F093",
-    "addressTeleporterSender": "0xA9b5d80d35DC72B06A0541fb5b07aE4eedA7cc05",
-    "addressTeleporterReceiver": "0x0986a598f762cC606b5A49c994b291971923ec36",
-    "addressUltraCalculator": "0xc8Dbc79187BFee28A80E7B6eCF706F96Ed2DD703"
+    "addressOrigin": "0xcd1AF832a1c4F636E2FCFDCfCF1705261B98919E",
+    "addressSender": "0xFDe625c18c0571ED6cDA8058c3700Fa7608263A8",
+    "addressReceiver": "0x640e580BFac634f8F8783D6eB1969bE36d660F48"
 }
